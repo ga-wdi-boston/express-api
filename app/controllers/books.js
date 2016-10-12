@@ -16,6 +16,9 @@ const index = (req, res, next) => {
 };
 
 const show = (req, res, next) => {
+  Book.findById(req.params.id)
+  .then(book => book ? res.json({ book }) : next())
+  .catch(err => next(err));
 
 };
 
@@ -30,10 +33,26 @@ const create = (req, res, next) => {
 };
 
 const update = (req, res, next) => {
+  let book = Object.assign(req.body.book, {
+    _owner: req.currentUser._id,
+  });
+  Book.create(book)
+    .then(book => res.json({ book }))
+    .catch(err => next(err));
 
 };
 
 const destroy = (req, res, next) => {
+  let search = { _id: req.params.id, _owner: req.currentUser._id };
+  Book.findOne(search)
+  .then(book => {
+    if (!book) {
+      return next();
+    }
+    return book.remove()
+    .then(() => res.sendStatus(200));
+})
+.catch(err => next(err));
 
 };
 
