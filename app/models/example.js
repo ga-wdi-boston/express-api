@@ -7,8 +7,8 @@ const exampleSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  _owner: {
-    type: mongoose.Schema.Types.ObjectId,
+  _owner: {   //CURRENT USER - THE VALUE IS its user's object id
+    type: mongoose.Schema.Types.ObjectId, //ObjectId VALUE OF _ID
     ref: 'User',
     required: true,
   },
@@ -17,7 +17,7 @@ const exampleSchema = new mongoose.Schema({
   toJSON: { virtuals: true },
 });
 
-exampleSchema.virtual('length').get(function length() {
+exampleSchema.virtual('length').get(function length() { //length as a virtual prp[erty here]
   return this.text.length;
 });
 
