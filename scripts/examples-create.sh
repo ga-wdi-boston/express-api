@@ -2,12 +2,12 @@
 
 curl --include --request POST http://localhost:3000/examples \
   --header "Content-Type: application/json" \
-  --header "Authorization: Token token=UrY7C28nvHaZYXcE+SRrSpms9OFU3LvN2qUhXiI8ObY=--Mwy5gFSwJIHJy7xMSpEmyUqYfBFTwCrPuCBKN3ru77A=" \
+  --header "Authorization: Token token=0b5HCjX04oSalZKyqfkb/kYtdyPvV5TW21OfhSOjm4A=--7FmSsPhe+G/8V97IR/rc+pHHmY2p0tCCEU6MTMVNoYs=" \
   --data '{
     "example": {
       "text": "My first example text"
     }
   }'
 
-# id = 57fe5716f5f6742d352c1690
-# token = UrY7C28nvHaZYXcE+SRrSpms9OFU3LvN2qUhXiI8ObY=--Mwy5gFSwJIHJy7xMSpEmyUqYfBFTwCrPuCBKN3ru77A=
+# id = 57fe831d58e2cc8b693788fc
+# token = 0b5HCjX04oSalZKyqfkb/kYtdyPvV5TW21OfhSOjm4A=--7FmSsPhe+G/8V97IR/rc+pHHmY2p0tCCEU6MTMVNoYs=
