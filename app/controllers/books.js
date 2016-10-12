@@ -12,7 +12,11 @@ const index = (req, res, next) => {
     .catch(err => next(err));
 };
 
-const show = (/*req, res, next*/) => {
+const show = (req, res, next) => {
+  Book.findById(req.params.id)
+
+  .then(book => book ? res.json({ book }) : next())
+  .catch(err => next(err));
 
 };
 
@@ -25,11 +29,31 @@ const create = (req, res, next) => {
     .catch(err => next(err));
 };
 
-const update = (/*req, res, next*/) => {
-
+const update = (req, res, next) => {
+  let search = { _id: req.params.id, _owner: req.currentUser._id };
+  Book.findOne(search)
+  .then(book => {
+    if (!book) {
+      return next();
+    }
+    delete req.body._owner;
+    return book.update(req.body.book)
+    .then(() => res.sendStatus(200));
+  })
+  .catch(err => next(err));
 };
 
-const destroy = (/*req, res, next*/) => {
+const destroy = (req, res, next) => {
+  let search = { _id: req.params.id, _owner: req.currentUser._id };
+  Book.findOne(search)
+  .then(book => {
+    if (!book) {
+      return next();
+    }
+    return book.remove()
+    .then(() => res.sendStatus(200));
+})
+.catch(err => next(err));
 
 };
 

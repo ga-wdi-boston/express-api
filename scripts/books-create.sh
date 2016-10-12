@@ -5,7 +5,7 @@ curl --include --request POST http://localhost:3000/books \
   --header "Authorization: Token token=j/Pg9MnWoxJWGqH6iYnzh7lHfWk05nHY8/RoK9wnWlc=--v7y6ThjJBAQVYqrVo3Sw7nSlvWRKMXXIPvJpHJSopZo=" \
   --data '{
     "book": {
-      "title": "NEW BOOK TITLE CHANGE",
+      "title": "Learning to Fly",
       "author": "Jaime H"
     }
   }'
