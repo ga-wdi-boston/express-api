@@ -8,7 +8,7 @@ module.exports = require('lib/wiring/routes')
 .root('root#root')
 
 // standards RESTful routes
-.resources('examples')
+.resources('examples') // Gives us paths to all controller actions.
 
 // users of the app have special requirements
 .post('/sign-up', 'users#signup')
@@ -16,6 +16,11 @@ module.exports = require('lib/wiring/routes')
 .delete('/sign-out/:id', 'users#signout')
 .patch('/change-password/:id', 'users#changepw')
 .resources('users', { only: ['index', 'show'] })
+
+// books routes
+.get('/books', 'books#index')
+.post('/books', 'books#create')
+.show('/books/id', 'books#show')
 
 // all routes created
 ;
