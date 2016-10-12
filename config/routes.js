@@ -8,6 +8,7 @@ module.exports = require('lib/wiring/routes')
 .root('root#root')
 
 // standards RESTful routes
+// Does not include New and Edit
 .resources('examples')
 
 // users of the app have special requirements
@@ -17,5 +18,11 @@ module.exports = require('lib/wiring/routes')
 .patch('/change-password/:id', 'users#changepw')
 .resources('users', { only: ['index', 'show'] })
 
+// books routes
+.post('/books', 'books#create')
+.get('/books', 'books#index')
+
 // all routes created
+
+
 ;
