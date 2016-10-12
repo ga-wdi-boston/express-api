@@ -28,7 +28,17 @@ const create = (req, res, next) => {
 };
 
 const update = (req, res, next) => {
-
+  let search = { _id: req.params.id, _owner: req.currentUser._id };
+  Book.findOne(search)
+    .then(book => {
+      if (!book) {
+        return next();
+      }
+      delete req.body._owner;  // disallow owner reassignment.
+      return book.update(req.body.book)
+        .then(() => res.sendStatus(200));
+    })
+    .catch(err => next(err));
 };
 
 const destroy = (req, res, next) => {
