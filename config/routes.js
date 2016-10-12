@@ -19,8 +19,9 @@ module.exports = require('lib/wiring/routes')
 .patch('/change-password/:id', 'users#changepw')
 .resources('users', { only: ['index', 'show'] })
 
-// books routes
+// books routes (same as .resources('books'))
 .get('/books', 'books#index')
+.get('/books/:id', 'books#show')
 .post('/books', 'books#create')
 
 // all routes created

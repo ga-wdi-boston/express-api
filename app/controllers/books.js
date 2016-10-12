@@ -13,7 +13,9 @@ const index = (req, res, next) => {
 };
 
 const show = (req, res, next) => {
-
+  Book.findById(req.params.id)
+    .then(book => book ? res.json({ book }) : next())
+    .catch(err => next(err));
 };
 
 const create = (req, res, next) => {
