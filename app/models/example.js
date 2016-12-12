@@ -7,9 +7,9 @@ const exampleSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  _owner: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+  _owner: { // this is basically 'current_user,' it's value will be the user's ID
+    type: mongoose.Schema.Types.ObjectId, // this sets the type to be ObjectId
+    ref: 'User', // and it will be _referencing_ a user
     required: true,
   },
 }, {
