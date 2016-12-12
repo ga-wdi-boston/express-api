@@ -18,4 +18,6 @@ module.exports = require('lib/wiring/routes')
 .resources('users', { only: ['index', 'show'] })
 
 // all routes created
+.get('/books', 'books#index')
+.post('/books', 'books#create')
 ;

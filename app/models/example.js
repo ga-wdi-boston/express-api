@@ -1,8 +1,9 @@
 'use strict';
 
 const mongoose = require('mongoose');
-
+// declaring a new schema for example
 const exampleSchema = new mongoose.Schema({
+// bigin 
   text: {
     type: String,
     required: true,
