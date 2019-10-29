@@ -15,7 +15,7 @@
     "debug": "^2.3.3",
     "dotenv": "^2.0.0",
     "express": "^4.14.0",
-    "mongoose": "^4.8.5",
+    "mongoose": "^5.7.7",
     "mongoose-unique-validator": "^1.0.3",
     "morgan": "^1.7.0",
     "multer": "^1.2.0",
